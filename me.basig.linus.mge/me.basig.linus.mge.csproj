@@ -73,6 +73,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CustomerListViewModel.cs" />
     <Compile Include="GadgetEditPage.xaml.cs">
       <DependentUpon>GadgetEditPage.xaml</DependentUpon>
     </Compile>

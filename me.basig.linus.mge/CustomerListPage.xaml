@@ -7,14 +7,12 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
-
-    <ListView Grid.Column="0" Name="customers">
-        <ListView.View>
-            <GridView>
-                <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding Name}"/>
-                <GridViewColumn Header="Email" Width="Auto" DisplayMemberBinding="{Binding Email}" />
-                <GridViewColumn Header="Studenten Nummer" Width="Auto" DisplayMemberBinding="{Binding Studentnumber}"/>
-            </GridView>
-        </ListView.View>
-    </ListView>
+    <DataGrid ItemsSource="{Binding Customers}" AutoGenerateColumns="False" >
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Studentnumber" Binding="{Binding Studentnumber}" IsReadOnly="True"/>
+            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+            <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
+            <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
+        </DataGrid.Columns>
+    </DataGrid>
 </Page>

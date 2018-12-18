@@ -1,8 +1,10 @@
 ﻿using ch.hsr.wpf.gadgeothek.domain;
 using ch.hsr.wpf.gadgeothek.service;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace me.basig.linus.mge
 {
@@ -13,16 +15,14 @@ namespace me.basig.linus.mge
     {
         LibraryAdminService Service;
 
+        CustomerListViewModel ViewModel { get; set; }
+
         public CustomerListPage()
         {
             InitializeComponent();
-            var appSettings = ConfigurationManager.AppSettings;
-            var ServerUrl = appSettings.Get("server");
-            Service = new LibraryAdminService(ServerUrl);
-
-            customers.ItemsSource = Service.GetAllCustomers();
-
-
+            ViewModel = new CustomerListViewModel();
+            DataContext = ViewModel;
+            ViewModel.LoadData();
         }
     }
 }
