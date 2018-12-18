@@ -25,7 +25,7 @@
                 </Grid>
                 <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch"/>
                 <Frame Grid.Column="2" Source="GadgetEditPage.xaml" Margin="10"/>
-                
+   
             </Grid>
         </TabItem>
         <TabItem Header="Kunden">

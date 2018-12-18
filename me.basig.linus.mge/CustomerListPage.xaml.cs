@@ -3,6 +3,7 @@ using ch.hsr.wpf.gadgeothek.service;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
