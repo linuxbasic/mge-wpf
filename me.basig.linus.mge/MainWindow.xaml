@@ -30,7 +30,7 @@
         </TabItem>
         <TabItem Header="Kunden">
             <Grid>
-                <Frame Source="CustomerListPage.xaml" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Frame Source="CustomerPage.xaml" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Grid>
         </TabItem>
         <TabItem Header="Ausleihvorgänge">
