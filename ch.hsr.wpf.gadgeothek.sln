@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ch.hsr.wpf.gadgeothek.webso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "me.basig.linus.mge", "me.basig.linus.mge\me.basig.linus.mge.csproj", "{E3EEE6CA-296A-49DA-B53E-767DC323B5D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "me.basig.linus.mge.tests", "UnitTestProject1\me.basig.linus.mge.tests.csproj", "{F562A9FA-CBDD-4805-8A76-7754C3D01B91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E3EEE6CA-296A-49DA-B53E-767DC323B5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3EEE6CA-296A-49DA-B53E-767DC323B5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3EEE6CA-296A-49DA-B53E-767DC323B5D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F562A9FA-CBDD-4805-8A76-7754C3D01B91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F562A9FA-CBDD-4805-8A76-7754C3D01B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F562A9FA-CBDD-4805-8A76-7754C3D01B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F562A9FA-CBDD-4805-8A76-7754C3D01B91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

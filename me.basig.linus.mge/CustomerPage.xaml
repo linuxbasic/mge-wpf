@@ -19,18 +19,51 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="40" />
             </Grid.RowDefinitions>
-            <DataGrid Grid.Row="0" ItemsSource="{Binding AllCustomers}" AutoGenerateColumns="False" Name="customers" IsReadOnly="True">
+            <DataGrid Grid.Row="0" ItemsSource="{Binding AllCustomers}" AutoGenerateColumns="False" Name="customers" IsReadOnly="True" SelectedItem="{Binding CustomerInEditor}" SelectionMode="Single">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Studentnumber" Binding="{Binding Studentnumber}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                     <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
                     <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
-                    <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Grid.Row="1" Margin="10" >Create New Customer</Button>
+            <Button Grid.Row="1" Margin="10" Click="Add_Click">Create New Customer</Button>
         </Grid>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch"/>
-        <Frame Grid.Column="2" Source="GadgetEditPage.xaml" Margin="10"/>
+        <Grid Grid.Column="2" Margin="10,10,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBlock Margin="10" FontSize="20" Name="title">Edit / Create Customer</TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0">Studentnumber:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="0" Name="Studentnumber" Text="{Binding EditorStudentnumber}"></TextBox>
+                    <Label Grid.Column="0" Grid.Row="1">Name:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="1" Name="Name" Text="{Binding EditorName}" ></TextBox>
+                    <Label Grid.Column="0" Grid.Row="2">Email:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="2" Name="Email" Text="{Binding EditorEmail}" ></TextBox>
+                    <Label Grid.Column="0" Grid.Row="3">Password:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="3" Name="Password" Text="{Binding EditorPassword}" ></TextBox>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Width="100" Margin="10" Click="Delete_Click" IsEnabled="{Binding CanDelete}">Delete</Button>
+                <Button Width="100" Margin="10" IsEnabled="{Binding HasUnsavedChanges}" Click="Reset_Click">Reset</Button>
+                <Button Width="100" Margin="10" IsEnabled="{Binding CanSave}" Click="Save_Click" IsDefault="True">Save</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

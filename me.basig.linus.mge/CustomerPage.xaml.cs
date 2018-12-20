@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ch.hsr.wpf.gadgeothek.service;
+using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace me.basig.linus.mge
 {
@@ -24,9 +14,38 @@ namespace me.basig.linus.mge
         public CustomerPage()
         {
             InitializeComponent();
-            ViewModel = new CustomerViewModel();
+            var appSettings = ConfigurationManager.AppSettings;
+            var ServerUrl = appSettings.Get("server");
+            var Service = new LibraryAdminService(ServerUrl);
+            ViewModel = new CustomerViewModel(Service);
             DataContext = ViewModel;
             ViewModel.LoadCustomers();
+        }
+
+
+        private void Save_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ViewModel.SaveCustomer();
+        }
+
+        private void Delete_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                ViewModel.DeleteCustomer();
+            }
+               
+        }
+
+        private void Add_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ViewModel.NewCustomer();
+        }
+
+        private void Reset_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ViewModel.ResetCustomer();
         }
     }
 }
